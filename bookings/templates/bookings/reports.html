@@ -1,0 +1,36 @@
+﻿{% extends 'bookings/base.html' %}
+
+{% block title %}تقارير الحجوزات{% endblock %}
+{% block icon %}chart-bar{% endblock %}
+{% block page_title %}تقارير الحجوزات{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'booking_home' %}">الرئيسية</a></li>
+<li class="breadcrumb-item active">التقارير</li>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="stat-card total">
+            <div class="stat-icon"><i class="fas fa-list"></i></div>
+            <div class="stat-number">{{ stats.total_bookings }}</div>
+            <div class="stat-label">إجمالي الحجوزات</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card revenue">
+            <div class="stat-icon"><i class="fas fa-coins"></i></div>
+            <div class="stat-number">{{ stats.total_revenue }}</div>
+            <div class="stat-label">إجمالي الإيرادات</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card confirmed">
+            <div class="stat-icon"><i class="fas fa-calendar-day"></i></div>
+            <div class="stat-number">{{ stats.today_bookings }}</div>
+            <div class="stat-label">حجوزات اليوم</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
