@@ -1,0 +1,61 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block title %}الوجهات | رويال فيستا{% endblock %}
+{% block content %}
+<section class="hero page-hero" style="--hero-image: url('{% static 'images/dest_2.jpg' %}');">
+    <div class="container hero-grid">
+        <div data-reveal>
+            <p class="eyebrow">الوجهات</p>
+            <h2>وجهات مختارة لمغامرات فاخرة</h2>
+            <p>اختر من قائمة وجهات عالمية مصممة لعشاق الرفاهية والتجارب الخاصة.</p>
+        </div>
+        <div class="hero-card" data-reveal>
+            <h3>اختيارك يبدأ هنا</h3>
+            <p class="section-lead">نوفّر لك خيارات متنوعة بين البحر، الجبال، والمدن الكلاسيكية.</p>
+            <a class="btn btn-primary" href="/contact/">استشر خبراء السفر</a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="tags" data-reveal data-filter-group data-filter-target="#destinations-grid">
+            <button class="tag active" type="button" data-filter="all">الكل</button>
+            <button class="tag" type="button" data-filter="beach">شواطئ</button>
+            <button class="tag" type="button" data-filter="city">مدن عالمية</button>
+            <button class="tag" type="button" data-filter="mountain">جبال</button>
+            <button class="tag" type="button" data-filter="heritage">تراث وثقافة</button>
+        </div>
+        <div class="image-grid" id="destinations-grid">
+            <div class="image-tile" data-filter-item style="--tile-image: url('{% static 'images/dest_1.jpg' %}');" data-reveal data-category="heritage">
+                <div>
+                    <h4>العلا</h4>
+                    <span>منتجعات صحراوية وتجارب تراثية</span>
+                </div>
+            </div>
+            <div class="image-tile" data-filter-item style="--tile-image: url('{% static 'images/gallery_2.jpg' %}');" data-reveal data-category="mountain">
+                <div>
+                    <h4>جنيف</h4>
+                    <span>إطلالات جبلية وشتاء أنيق</span>
+                </div>
+            </div>
+            <div class="image-tile" data-filter-item style="--tile-image: url('{% static 'images/gallery_3.jpg' %}');" data-reveal data-category="beach">
+                <div>
+                    <h4>البحر الأحمر</h4>
+                    <span>فلل بحرية وتجارب يخت خاصة</span>
+                </div>
+            </div>
+            <div class="image-tile" data-filter-item style="--tile-image: url('{% static 'images/gallery_5.jpg' %}');" data-reveal data-category="city">
+                <div>
+                    <h4>ميلانو</h4>
+                    <span>تسوّق فاخر وفن معماري</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+
+
