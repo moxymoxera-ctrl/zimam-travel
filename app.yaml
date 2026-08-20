@@ -1,0 +1,13 @@
+runtime: python312
+entrypoint: gunicorn travel_site.wsgi:application
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: "travel_site.settings"
+
+handlers:
+- url: /static
+  static_dir: staticfiles
+- url: /media
+  static_dir: media
+- url: /.*
+  script: auto
