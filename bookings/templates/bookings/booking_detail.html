@@ -1,0 +1,107 @@
+﻿{% extends 'bookings/base.html' %}
+
+{% block title %}تفاصيل الحجز{% endblock %}
+{% block icon %}eye{% endblock %}
+{% block page_title %}تفاصيل الحجز{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'booking_list' %}">الحجوزات</a></li>
+<li class="breadcrumb-item active">{{ booking.booking_number }}</li>
+{% endblock %}
+
+{% block header_actions %}
+<div class="d-flex">
+    <a href="{% url 'booking_update' booking.pk %}" class="btn btn-warning me-2">
+        <i class="fas fa-edit"></i> تعديل
+    </a>
+    <a href="{% url 'issue_ticket' booking.pk %}" class="btn btn-success me-2">
+        <i class="fas fa-ticket-alt"></i> إصدار تذكرة
+    </a>
+    <a href="{% url 'booking_list' %}" class="btn btn-secondary">
+        <i class="fas fa-arrow-right"></i> رجوع
+    </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-info-circle"></i> تفاصيل الحجز</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>رقم الحجز:</strong> {{ booking.booking_number }}</p>
+                        <p><strong>العميل:</strong> {{ booking.customer_name }}</p>
+                        <p><strong>الهاتف:</strong> {{ booking.customer_phone }}</p>
+                        <p><strong>البريد:</strong> {{ booking.customer_email|default:"-" }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>نوع الحجز:</strong> {{ booking.get_booking_type_display }}</p>
+                        <p><strong>الوجهة:</strong> {{ booking.destination }}</p>
+                        <p><strong>تاريخ المغادرة:</strong> {{ booking.departure_date }}</p>
+                        <p><strong>تاريخ العودة:</strong> {{ booking.return_date|default:"-" }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="fas fa-money-bill-wave"></i> المدفوعات</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>الإجمالي:</strong> {{ booking.total_amount }}</p>
+                        <p><strong>المدفوع:</strong> {{ booking.paid_amount }}</p>
+                        <p><strong>المتبقي:</strong> {{ booking.remaining_amount }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>طريقة الدفع:</strong> {{ booking.payment_method|default:"-" }}</p>
+                        <p><strong>حالة الدفع:</strong> {{ booking.payment_status }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if booking.notes %}
+        <div class="card mb-4">
+            <div class="card-header bg-secondary text-white">
+                <h5 class="mb-0"><i class="fas fa-sticky-note"></i> الملاحظات</h5>
+            </div>
+            <div class="card-body">
+                <p>{{ booking.notes }}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header bg-dark text-white">
+                <h5 class="mb-0"><i class="fas fa-flag"></i> حالة الحجز</h5>
+            </div>
+            <div class="card-body text-center">
+                <h4 class="mb-3">{{ booking.get_status_display }}</h4>
+                <a href="{% url 'booking_confirm' booking.pk %}" class="btn btn-success btn-sm">
+                    تحديث الحالة
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header bg-light">
+                <h6 class="mb-0"><i class="fas fa-history"></i> سجل العمليات</h6>
+            </div>
+            <div class="card-body">
+                <a href="{% url 'booking_logs_detail' booking.pk %}" class="btn btn-primary w-100">
+                    عرض السجل
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
