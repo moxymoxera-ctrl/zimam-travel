@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: zimam-travel
+    runtime: python
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
+    preDeployCommand: python manage.py migrate --noinput
+    startCommand: gunicorn travel_site.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: travel_site.settings
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_DEBUG
+        value: "false"
+      - key: DJANGO_ALLOWED_HOSTS
+        value: "*"
+      - key: DB_NAME
+        fromDatabase:
+          name: zimam-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: zimam-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: zimam-db
+          property: password
+      - key: DB_HOST
+        fromDatabase:
+          name: zimam-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: zimam-db
+          property: port
+
+  - type: database
+    name: zimam-db
+    runtime: postgres
+    plan: free
+    databaseName: travel_management_db
+    user: zimam
