@@ -1,0 +1,54 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block title %}تواصل معنا | رويال فيستا{% endblock %}
+{% block content %}
+<section class="hero page-hero" style="--hero-image: url('{% static 'images/gallery_5.jpg' %}');">
+    <div class="container hero-grid">
+        <div data-reveal>
+            <p class="eyebrow">تواصل معنا</p>
+            <h2>دعنا نبدأ رحلة جديدة لك</h2>
+            <p>شاركنا تفاصيل رحلتك وسيعود إليك أحد خبرائنا بخطة فاخرة ومخصصة.</p>
+        </div>
+        <div class="hero-card" data-reveal>
+            <h3>سريع ومباشر</h3>
+            <p class="section-lead">نرد خلال 24 ساعة مع مقترح أولي.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert-success" style="margin-bottom: 20px; padding: 12px 16px; background: #e8f7ee; color: #1d6f46; border: 1px solid #bfe5ce; border-radius: 10px; font-weight: 600;">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form class="form-card" data-reveal method="post" action="">
+            {% csrf_token %}
+            <label>الاسم الكامل</label>
+            <input type="text" placeholder="اكتب اسمك الكامل" name="full_name">
+            <label>البريد الإلكتروني</label>
+            <input type="email" placeholder="example@email.com" name="email">
+            <label>الوجهة المفضلة</label>
+            <input type="text" placeholder="مثال: جنيف، باريس" name="destination">
+            <label>تفاصيل الرحلة</label>
+            <textarea rows="5" placeholder="حدّد التواريخ والعدد وأي تفاصيل مهمة" name="details"></textarea>
+            <button class="btn btn-primary" type="submit">إرسال الطلب</button>
+        </form>
+        <div class="lux-card" data-reveal>
+            <h4>بيانات التواصل</h4>
+            <p>الهاتف: 9200 00000</p>
+            <p>واتساب: 055 000 0000</p>
+            <p>البريد: hello@royalvista.sa</p>
+            <div class="pill-group">
+                <span class="pill">الرياض - حي السفارات</span>
+                <span class="pill">أوقات العمل: 9ص - 9م</span>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
