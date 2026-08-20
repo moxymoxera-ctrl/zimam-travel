@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        body { font-family: "Cairo", "Segoe UI", Tahoma, sans-serif; padding: 24px; color: #111827; }
+        .card { max-width: 900px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+        .field { border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px 12px; }
+        .field span { color: #6b7280; font-size: 0.85rem; display: block; margin-bottom: 6px; }
+        @media print { button { display: none; } }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>تذكرة الحجز {{ booking.booking_number }}</h1>
+        <div class="grid">
+            <div class="field"><span>العميل</span>{{ booking.customer_name }}</div>
+            <div class="field"><span>الهاتف</span>{{ booking.customer_phone }}</div>
+            <div class="field"><span>الوجهة</span>{{ booking.destination }}</div>
+            <div class="field"><span>تاريخ المغادرة</span>{{ booking.departure_date }}</div>
+            <div class="field"><span>عدد المسافرين</span>{{ booking.passengers }}</div>
+            <div class="field"><span>الإجمالي</span>{{ booking.total_amount }}</div>
+        </div>
+        <div style="margin-top: 16px;">
+            <button onclick="window.print()">طباعة</button>
+        </div>
+    </div>
+</body>
+</html>
