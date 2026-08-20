@@ -1,0 +1,24 @@
+﻿{% extends 'bookings/base.html' %}
+
+{% block title %}إصدار التذكرة{% endblock %}
+{% block icon %}ticket-alt{% endblock %}
+{% block page_title %}إصدار التذكرة{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'booking_list' %}">الحجوزات</a></li>
+<li class="breadcrumb-item active">إصدار التذكرة</li>
+{% endblock %}
+
+{% block content %}
+<div class="card card-custom">
+    <div class="card-body">
+        <h5>الحجز: {{ booking.booking_number }}</h5>
+        <p>العميل: {{ booking.customer_name }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success-custom btn-custom">إصدار التذكرة</button>
+            <a href="{% url 'booking_detail' booking.pk %}" class="btn btn-secondary">رجوع</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
