@@ -1,0 +1,54 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block title %}المدونة | رويال فيستا{% endblock %}
+{% block content %}
+<section class="hero page-hero" style="--hero-image: url('{% static 'images/gallery_1.jpg' %}');">
+    <div class="container hero-grid">
+        <div data-reveal>
+            <p class="eyebrow">المدونة</p>
+            <h2>نصائح وأدلة للسفر الفاخر</h2>
+            <p>مقالات مختارة تساعدك على التخطيط بثقة وأناقة.</p>
+        </div>
+        <div class="hero-card" data-reveal>
+            <h3>مقالات أسبوعية</h3>
+            <p class="section-lead">تابع آخر النصائح من خبرائنا.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container cards three">
+        <a class="post-card" href="/blog/post-1/" data-reveal>
+            <span class="post-meta">دليل فندقي</span>
+            <h4>أفضل الفنادق البوتيك في باريس</h4>
+            <p>اختيارات فاخرة تناسب محبي الخصوصية والتفاصيل.</p>
+        </a>
+        <a class="post-card" href="/blog/post-2/" data-reveal>
+            <span class="post-meta">تجارب بحرية</span>
+            <h4>يوم فاخر على متن يخت في البحر الأحمر</h4>
+            <p>كيف تصنع تجربة بحرية لا تُنسى.</p>
+        </a>
+        <a class="post-card" href="/blog/post-3/" data-reveal>
+            <span class="post-meta">تخطيط ذكي</span>
+            <h4>قائمة الاستعداد للسفر خلال أسبوعين</h4>
+            <p>خطوات منظمة لتجهيز رحلة مريحة.</p>
+        </a>
+        <a class="post-card" href="/blog/post-4/" data-reveal>
+            <span class="post-meta">الشتاء الراقي</span>
+            <h4>أفضل وجهات الجبال لمحبي الفخامة</h4>
+            <p>وجهات تجمع بين الطبيعة الهادئة والخدمة الراقية.</p>
+        </a>
+        <a class="post-card" href="/blog/post-5/" data-reveal>
+            <span class="post-meta">دليل الأعمال</span>
+            <h4>كيف تسافر بذكاء بين الاجتماعات</h4>
+            <p>نصائح لرحلات عمل سلسة ومريحة.</p>
+        </a>
+        <a class="post-card" href="/blog/post-6/" data-reveal>
+            <span class="post-meta">تجارب خاصة</span>
+            <h4>عشاء خاص على شاطئ منعزل</h4>
+            <p>تفاصيل تجعل التجربة فريدة ومبهرة.</p>
+        </a>
+    </div>
+</section>
+{% endblock %}
+
