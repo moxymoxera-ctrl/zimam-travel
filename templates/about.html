@@ -1,0 +1,77 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block title %}من نحن | رويال فيستا{% endblock %}
+{% block content %}
+<section class="hero page-hero" style="--hero-image: url('{% static 'images/home_feature.jpg' %}');">
+    <div class="container hero-grid">
+        <div data-reveal>
+            <p class="eyebrow">من نحن</p>
+            <h2>نصنع الفخامة في تفاصيل الرحلة</h2>
+            <p>منذ انطلاقتنا، نركز على تقديم تجربة سفر تُشعرك بأن كل لحظة صُممت خصيصًا لك.</p>
+        </div>
+        <div class="hero-card" data-reveal>
+            <h3>وعدنا لك</h3>
+            <p class="section-lead">الخصوصية، الدقة، والاهتمام بالتفاصيل هي الأساس في كل رحلة.</p>
+            <ul>
+                <li>فريق تخطيط بخبرة دولية</li>
+                <li>شبكة واسعة من الشركاء المميزين</li>
+                <li>متابعة لحظية حتى العودة</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+        <div data-reveal>
+            <h2 class="section-title">قصتنا</h2>
+            <p class="section-lead">بدأت رويال فيستا بفكرة بسيطة: السفر الفاخر يجب أن يكون سهلًا، شخصيًا، وخاليًا من التعقيدات. اليوم، ندير تجارب سفر في أكثر من 30 وجهة حول العالم.</p>
+            <div class="pill-group">
+                <span class="pill">خطط رحلات مصممة يدويًا</span>
+                <span class="pill">خدمة كونسيرج متفرغة</span>
+                <span class="pill">عقود حصرية مع المنتجعات</span>
+            </div>
+        </div>
+        <div class="stat-grid" data-reveal>
+            <div class="stat">
+                <strong data-counter="15" data-suffix="+">0</strong>
+                <span>سنوات خبرة</span>
+            </div>
+            <div class="stat">
+                <strong data-counter="500" data-suffix="+">0</strong>
+                <span>رحلة فاخرة سنويًا</span>
+            </div>
+            <div class="stat">
+                <strong data-counter="30" data-suffix="+">0</strong>
+                <span>وجهة عالمية</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-soft">
+    <div class="container">
+        <h2 class="section-title" data-reveal>قيمنا</h2>
+        <div class="cards four">
+            <div class="lux-card" data-reveal>
+                <h4>الخصوصية</h4>
+                <p>نحافظ على سريتك التامة في كل مراحل التخطيط.</p>
+            </div>
+            <div class="lux-card" data-reveal>
+                <h4>الدقة</h4>
+                <p>تفاصيل دقيقة لضمان تجربة سلسة وخالية من المفاجآت.</p>
+            </div>
+            <div class="lux-card" data-reveal>
+                <h4>الضيافة</h4>
+                <p>نستقبلك ونرافقك بعناية تشبه ضيافة المنزل.</p>
+            </div>
+            <div class="lux-card" data-reveal>
+                <h4>الإبداع</h4>
+                <p>نصمم مسارات غير تقليدية تلائم ذوقك الخاص.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
