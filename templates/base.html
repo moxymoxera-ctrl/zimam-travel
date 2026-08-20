@@ -1,0 +1,78 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}زمام لسفريات و السياحه  | رحلات فاخرة{% endblock %}</title>
+    <meta name="description" content="تجارب سفر فاخرة مصممة حسب ذوقك مع كونسيرج خاص وخيارات إقامة استثنائية.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marhey:wght@400;600;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="grain"></div>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="/">
+                <span class="brand-mark">RV</span>
+                <div>
+                    <span class="brand-title">   زمـــــــــام لسفريات والسياحه </span>
+                    <span class="brand-subtitle">تجارب سفر خاصة وفاخرة</span>
+                </div>
+            </a>
+            <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="فتح القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav" data-nav-menu>
+                <a href="/">الرئيسية</a>
+                <a href="/destinations/">الوجهات</a>
+                <a href="/packages/">الباقات</a>
+                <a href="/booking/">الحجز</a>
+                <a href="/services/">الخدمات</a>
+                <a href="/blog/">المدونة</a>
+                <a href="/about/">من نحن</a>
+                <a class="nav-highlight" href="/more/">المزيد</a>
+            </nav>
+            <a class="btn btn-primary header-cta" href="/contact/">احجز استشارة</a>
+        </div>
+    </header>
+
+    <main id="content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <h4>رويال فيستا</h4>
+                <p>نصنع لك تجربة سفر فاخرة تتجاوز التوقعات، بخطط مرنة وخيارات إقامة مختارة بعناية.</p>
+            </div>
+            <div>
+                <h4>روابط سريعة</h4>
+                <div class="pill-group">
+                    <a href="/packages/">الباقات</a>
+                    <a href="/booking/">الحجز</a>
+                    <a href="/team/">فريقنا</a>
+                    <a href="/blog/">المدونة</a>
+                    <a href="/privacy/">الخصوصية</a>
+                    <a href="/terms/">الشروط</a>
+                </div>
+            </div>
+            <div>
+                <h4>تواصل</h4>
+                <p>الهاتف:  777543322</p>
+                <p>البريد: hello@royalvista.sa</p>
+                <p>صنعاء  - حي السفارات</p>
+            </div>
+        </div>
+        <div class="footer-bar">جميع الحقوق محفوظة © 2026 زمام لسفريات و السياحه </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+
