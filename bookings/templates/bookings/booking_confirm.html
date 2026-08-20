@@ -1,0 +1,33 @@
+﻿{% extends 'bookings/base.html' %}
+
+{% block title %}تأكيد الحجز{% endblock %}
+{% block icon %}check-circle{% endblock %}
+{% block page_title %}تأكيد الحجز{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'booking_list' %}">الحجوزات</a></li>
+<li class="breadcrumb-item active">تأكيد</li>
+{% endblock %}
+
+{% block content %}
+<div class="card card-custom">
+    <div class="card-body">
+        <h5>الحجز: {{ booking.booking_number }}</h5>
+        <p>العميل: {{ booking.customer_name }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">حالة الحجز</label>
+                <select name="status" class="form-select form-control-custom">
+                    <option value="pending" {% if booking.status == 'pending' %}selected{% endif %}>قيد الانتظار</option>
+                    <option value="confirmed" {% if booking.status == 'confirmed' %}selected{% endif %}>مؤكد</option>
+                    <option value="cancelled" {% if booking.status == 'cancelled' %}selected{% endif %}>ملغى</option>
+                    <option value="completed" {% if booking.status == 'completed' %}selected{% endif %}>مكتمل</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success-custom btn-custom">حفظ</button>
+            <a href="{% url 'booking_detail' booking.pk %}" class="btn btn-secondary">رجوع</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
