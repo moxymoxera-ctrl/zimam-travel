@@ -1,0 +1,39 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block title %}مقال | رويال فيستا{% endblock %}
+{% block content %}
+<section class="hero page-hero" style="--hero-image: url('{% static 'images/gallery_2.jpg' %}');">
+    <div class="container hero-grid">
+        <div data-reveal>
+            <p class="eyebrow">مقال مميز</p>
+            <h2>كيف تختار الفندق المثالي في باريس؟</h2>
+            <p>نصائح عملية من خبرائنا لتجربة فاخرة متكاملة.</p>
+        </div>
+        <div class="hero-card" data-reveal>
+            <h3>وقت القراءة</h3>
+            <p class="section-lead">6 دقائق</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container post-body">
+        <h3>1) حدد أسلوب الإقامة الذي تفضله</h3>
+        <p>هل تبحث عن فندق بوتيك هادئ أم فندق فاخر في مركز المدينة؟ تحديد النمط يوفر عليك الكثير.</p>
+        <h3>2) اختر الحي المناسب</h3>
+        <p>الشانزليزيه يناسب محبي التسوق، بينما لو ماراي مناسب لعشاق المقاهي والثقافة.</p>
+        <h3>3) احجز مبكرًا للغرف المميزة</h3>
+        <p>الغرف ذات الإطلالات الخاصة تنفد بسرعة، لذلك ننصح بالحجز المبكر.</p>
+        <h3>4) اطلب الإضافات الخاصة</h3>
+        <p>مثل الإفطار الخاص، خدمات السبا، أو التنقل الخاص من وإلى المطار.</p>
+        <div class="cta" data-reveal>
+            <div>
+                <h3>هل تريد ترشيحًا مباشرًا؟</h3>
+                <p class="section-lead">فريق رويال فيستا يقدم لك قائمة فندقية مخصصة.</p>
+            </div>
+            <a class="btn btn-primary" href="/contact/">تواصل معنا</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
