@@ -1,0 +1,23 @@
+﻿{% extends 'bookings/base.html' %}
+
+{% block title %}حذف الحجز{% endblock %}
+{% block icon %}trash{% endblock %}
+{% block page_title %}حذف الحجز{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'booking_list' %}">الحجوزات</a></li>
+<li class="breadcrumb-item active">حذف</li>
+{% endblock %}
+
+{% block content %}
+<div class="card card-custom">
+    <div class="card-body">
+        <p>هل أنت متأكد من حذف الحجز <strong>{{ booking.booking_number }}</strong>؟</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">حذف</button>
+            <a href="{% url 'booking_detail' booking.pk %}" class="btn btn-secondary">إلغاء</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
